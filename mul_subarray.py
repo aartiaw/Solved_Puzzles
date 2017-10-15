@@ -1,14 +1,22 @@
 """Max product subarray same as the Max sum subarray."""
 
 def get_max_product(arr):
-    """Function to get maximum sum from subarray."""
+    """Function to get maximum product from subarray."""
     if arr:
-        p = arr[0]
-        max_product = arr[0]
+        ans = arr[0]
+        cur_max_product = arr[0]
+        prev_max_product = arr[0]
+        prev_min_product = arr[0]
         for i in range(1, len(arr)):
-            p = max(arr[i], p*arr[i])
-            max_product = max(max_product, p)
-        return max_product
+            cur_max_product = max(arr[i], prev_max_product*arr[i],
+                                  prev_min_product*arr[i])
+            cur_min_product = min(arr[i], prev_max_product*arr[i],
+                                  prev_min_product*arr[i])
+            ans = max(ans, cur_max_product)
+
+            prev_max_product = cur_max_product
+            prev_min_product = cur_min_product
+        return ans
 
     else:
         return 0
