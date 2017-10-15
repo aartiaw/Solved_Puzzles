@@ -36,11 +36,11 @@ def max_sum_subseq(arr):
     max_sum = max(copy_arr)
 
     """Calculate maximum sum giving subsequence."""
-    position = copy_arr.index(max(copy_arr))
+    position = copy_arr.index(max_sum)
     while True:
         ans_subseq.insert(0, arr[position])
         """Break the loop when subsequence is found."""
-        if sum(ans_subseq) == max(copy_arr):
+        if sum(ans_subseq) == max_sum:
             break
         position = actual_seq[position]
 
