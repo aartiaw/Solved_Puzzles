@@ -3,32 +3,26 @@
    input: TOM MARVOLO RIDDLE
           I AM LORD VOLDEMORT
    output : Yes
-
    input: xoriantsolutions
           xorandornot
    output: No
 """
+from collections import Counter
 
 def is_anagram(str1, str2):
     """Function to check if given two strings are anagram"""
-    str1.sort()
-    str2.sort()
-
-    if len(str1) != len(str2):
-        print "Strings are not anagram!"
-    else:
-        for i in range(len(str1)):
-            if str1[i] != str2[i]:
-                print "Strings are not anagram!"
-                break
+    if sorted(str1) == sorted(str2):
         print "Strings are anagram!"
+    else:
+        print "Strings are not anagram!"
+        
 
-
-if __name__ == "__main__":
+if __name__ == "__main__":    
     string1 = raw_input("Enter first string: ")
-    str1 = [char for char in string1 if char is not " "]
+    str1 = Counter(char for char in string1 if char != " ")
 
     string2 = raw_input("Enter second string: ")
-    str2 = [char for char in string2 if char is not " "]
+    str2 = Counter(char for char in string2 if char != " ")
 
     is_anagram(str1, str2)
+
