@@ -2,7 +2,7 @@
    You can buy and sell only once.
    Find out the maximum profit you can make.
    input : 100 20 30 110 10 60 200 10
-   output : 200-10 = 190
+   output : 200-20 = 180
 """
 
 def get_max_profit(arr):
