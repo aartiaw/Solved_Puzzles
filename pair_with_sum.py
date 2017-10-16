@@ -8,8 +8,7 @@ def unsorted_array(arr, k):
     for i in range(len(arr)):
         pair_num = k - arr[i]
         j = i + 1
-        for j in range(len(arr)):
-            if arr[j] == pair_num:
+        if pair_num in arr:
                 return 1
     return 0
 
@@ -20,8 +19,7 @@ def sorted_array(arr, k):
             continue
         pair_num = k - arr[i]
         j = i + 1
-        for j in range(len(arr)):
-            if arr[j] == pair_num:
+        if pair_num in arr:
                 return 1
     return 0
 
